@@ -2,7 +2,7 @@
 
 > A GitHub action that compiles and attaches a Playdate game to a release
 
-[![License](https://flat.badgen.net/github/license/idleberg/create-playdate-releas)](LICENSE)
+[![License](https://flat.badgen.net/github/license/idleberg/create-playdate-release)](LICENSE)
 [![Version](https://flat.badgen.net/github/release/idleberg/create-playdate-release)](https://github.com/idleberg/create-playdate-release/releases)
 [![Status](https://flat.badgen.net/github/checks/idleberg/create-playdate-release/?label=build)](https://github.com/idleberg/create-playdate-release/actions)
 
