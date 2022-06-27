@@ -1,0 +1,29 @@
+
+name: test:target_folder
+
+on:
+  push
+
+jobs:
+  test-run:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: idleberg/create-playdate-release@main
+      with:
+        dry_run: true
+        source_folder: .github/source
+        target_folder: yolo
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build output exists
+      run: |
+        if ! ls yolo.pdx/main.pdz 1> /dev/null 2>&1; then
+            echo "Build output doesn't exist"
+            exit 1
+        fi

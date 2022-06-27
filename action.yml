@@ -1,0 +1,63 @@
+name: 'Create Playdate Release'
+description: 'Compiles a Playdate project and attaches it to a release'
+
+branding:
+  color: purple
+  icon: loader
+
+inputs:
+  github_token:
+    description: 'You need to pass your GITHUB_TOKEN to the action'
+    required: true
+  source_folder:
+    description: 'The source directory of the project'
+    default: 'source'
+  target_folder:
+    description: 'The name of the build target directory'
+    default: 'build'
+  include_files:
+    description: 'List of space-separated files to include in the release'
+    default: ''
+  is_draft:
+    description: 'Mark release is a draft'
+    default: 'false'
+  is_prerelease:
+    description: 'Mark release is a prerelease'
+    default: 'false'
+  dry_run:
+    descripton: 'Skips creation of a release'
+    default: 'false'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install SDK
+      uses: idleberg/setup-playdate-sdk@v2.0.0
+
+    - name: Build Project
+      shell: bash
+      run: |
+        pdc ${{ inputs.source_folder }} ${{ inputs.target_folder }}.pdx --strip --verbose
+        zip -r -9 ${{ inputs.target_folder }}-${{ github.ref_name }}.zip ${{ inputs.target_folder }}.pdx ${{ inputs.include_files }}
+
+    - name: Create Release
+      uses: actions/create-release@v1
+      if: ${{ !inputs.dry_run }}
+      env:
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+      with:
+        tag_name: ${{ github.ref_name }}
+        release_name: ${{ github.ref_name }}
+        draft: ${{ inputs.is_draft }}
+        prerelease: ${{ inputs.is_prerelease }}
+
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      if: ${{ !inputs.dry_run }}
+      env:
+        GITHUB_TOKEN: ${{ inputs.github_token }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./${{ inputs.target_folder }}-${{ github.ref_name }}.zip
+        asset_name: ${{ inputs.target_folder }}-${{ github.ref_name }}.zip
+        asset_content_type: application/zip
