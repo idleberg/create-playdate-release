@@ -1,6 +1,6 @@
 # create-playdate-release
 
-> A GitHub action that compiles and attaches a Playdate game to a release
+> A GitHub action that compiles and attaches a Playdate game to a release.
 
 [![License](https://flat.badgen.net/github/license/idleberg/create-playdate-release)](LICENSE)
 [![Version](https://flat.badgen.net/github/release/idleberg/create-playdate-release)](https://github.com/idleberg/create-playdate-release/releases)
@@ -31,6 +31,10 @@ Every argument is optional.
 | `is_draft`         | Mark release is a draft                           | `false`  |
 | `is_prerelease`    | Mark release is a pre-release                     | `false`  |
 | `dry_run`          | Skips creation of a release                       | `false`  |
+
+## Related
+
+- [setup-playdate-sdk](https://github.com/marketplace/actions/setup-playdate-sdk)
 
 ## License
 
