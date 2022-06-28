@@ -2,8 +2,8 @@ name: 'Create Playdate Release'
 description: 'Compiles a Playdate project and attaches it to a release'
 
 branding:
-  color: purple
-  icon: loader
+  color: yellow
+  icon: paperclip
 
 inputs:
   github_token:
