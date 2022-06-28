@@ -20,7 +20,7 @@ Configure a step that adds the `idleberg/create-playdate-release` action to your
 
 ### List of input options
 
-Every argument is optional.
+Bold arguments are required
 
 | Input              | Description                                       | Default  |
 | ------------------ | --------------------------------------------------| -------- |
