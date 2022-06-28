@@ -28,12 +28,12 @@ jobs:
             exit 1
         fi
 
-        if ! unzip -l build-main.zip | grep LICENSE 1> /dev/null 2>&1; then
+        if ! unzip -l build-${{ github.ref_name }}.zip | grep LICENSE 1> /dev/null 2>&1; then
             echo "LICENSE doesn't exist"
             exit 1
         fi
 
-        if ! unzip -l build-main.zip | grep README.md 1> /dev/null 2>&1; then
+        if ! unzip -l build-${{ github.ref_name }}.zip | grep README.md 1> /dev/null 2>&1; then
             echo "README.md doesn't exist"
             exit 1
         fi
