@@ -27,6 +27,7 @@ inputs:
   dry_run:
     descripton: 'Skips creation of a release'
     default: 'false'
+    required: true
 
 runs:
   using: "composite"
