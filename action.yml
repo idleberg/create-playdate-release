@@ -12,22 +12,27 @@ inputs:
   source_folder:
     description: 'The source directory of the project'
     default: 'source'
+    required: false
   target_folder:
     description: 'The name of the build target directory'
     default: 'build'
+    required: false
   include_files:
     description: 'List of space-separated files to include in the release'
     default: ''
+    required: false
   is_draft:
     description: 'Mark release is a draft'
     default: 'false'
+    required: false
   is_prerelease:
     description: 'Mark release is a prerelease'
     default: 'false'
+    required: false
   dry_run:
     description: 'Skips creation of a release'
     default: 'false'
-    required: true
+    required: false
 
 runs:
   using: "composite"
@@ -42,9 +47,8 @@ runs:
         zip -r -9 ${{ inputs.target_folder }}-${{ github.ref_name }}.zip ${{ inputs.target_folder }}.pdx ${{ inputs.include_files }}
 
     - name: Create Release
-      id: create_release
       uses: actions/create-release@v1
-      if: ${{ inputs.dry_run != 'false' }}
+      id: create_release
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
       with:
@@ -55,7 +59,6 @@ runs:
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
-      if: ${{ inputs.dry_run != 'false' }}
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
       with:
