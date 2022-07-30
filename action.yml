@@ -25,7 +25,7 @@ inputs:
     description: 'Mark release is a prerelease'
     default: 'false'
   dry_run:
-    descripton: 'Skips creation of a release'
+    description: 'Skips creation of a release'
     default: 'false'
     required: true
 
