@@ -30,7 +30,6 @@ Bold arguments are required
 | `include_files`    | List of files to include in the release           | –        |
 | `is_draft`         | Mark release is a draft                           | `false`  |
 | `is_prerelease`    | Mark release is a pre-release                     | `false`  |
-| `dry_run`          | Skips creation of a release                       | `false`  |
 
 ## Related
 

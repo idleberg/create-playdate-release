@@ -29,10 +29,10 @@ inputs:
     description: 'Mark release is a prerelease'
     default: 'false'
     required: false
-  dry_run:
-    description: 'Skips creation of a release'
-    default: 'false'
-    required: false
+  # dry_run:
+  #   description: 'Skips creation of a release'
+  #   default: 'false'
+  #   required: false
 
 runs:
   using: "composite"
