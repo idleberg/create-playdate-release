@@ -15,13 +15,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: idleberg/create-playdate-release@main
+    - uses: idleberg/create-playdate-release@test
       with:
         # dry_run: true
         source_folder: .github/source
         github_token: ${{ secrets.GITHUB_TOKEN }}
-      env:
-        ACTION_DRY_RUN: true
 
     - name: Build output exists
       run: |

@@ -21,8 +21,6 @@ jobs:
         source_folder: .github/source
         target_folder: yolo
         github_token: ${{ secrets.GITHUB_TOKEN }}
-      env:
-        ACTION_DRY_RUN: true
 
     - name: Build output exists
       run: |
