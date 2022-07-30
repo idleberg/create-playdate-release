@@ -41,6 +41,7 @@ runs:
         zip -r -9 ${{ inputs.target_folder }}-${{ github.ref_name }}.zip ${{ inputs.target_folder }}.pdx ${{ inputs.include_files }}
 
     - name: Create Release
+      id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
