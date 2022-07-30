@@ -43,6 +43,7 @@ runs:
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
+      if: ${{ !inputs.dry_run }}
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
       with:
@@ -53,6 +54,7 @@ runs:
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
+      if: ${{ !inputs.dry_run }}
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
       with:
