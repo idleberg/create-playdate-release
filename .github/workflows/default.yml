@@ -15,9 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: idleberg/create-playdate-release@test
+    - uses: idleberg/create-playdate-release@main
       with:
-        # dry_run: true
+        dry_run: true
         source_folder: .github/source
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
