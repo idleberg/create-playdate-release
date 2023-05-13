@@ -27,10 +27,14 @@ Bold arguments are required
 | **`github_token`** | Your GitHub token (`${{ secrets.GITHUB_TOKEN }}`) | –        |
 | `input`            | The source directory of the project               | `source` |
 | `output`           | The name of the build target directory            | `build`  |
+| `compress`         | Compress output files                             | `true`   |
+| `quiet`            | Quiet mode, suppresses non-error output'          | `false`  |
+| `strip`            | Strip debug symbols from build                    | `true`   |
+| `verbose`          | Enables verbose mode                              | `true`   |
 | `include_files`    | List of files to include in the release           | –        |
 | `is_draft`         | Mark release is a draft                           | `false`  |
 | `is_prerelease`    | Mark release is a pre-release                     | `false`  |
-| `dry_run`          | Skips creation of a release                       | `false` |
+| `dry_run`          | Skips creation of a release                       | `false`  |
 
 ## Related
 
