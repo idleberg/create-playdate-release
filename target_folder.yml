@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: idleberg/create-playdate-release@main
+    - uses: idleberg/create-playdate-release@develop
       with:
         dry_run: true
         input: .github/source
