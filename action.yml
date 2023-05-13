@@ -23,13 +23,13 @@ inputs:
     description: 'Compress output files'
     default: 'true'
     required: false
-  strip:
-    description: 'Strip debug symbols from build'
-    default: 'true'
-    required: false
   quiet:
     description: 'Quiet mode, suppresses non-error output'
     default: 'false'
+    required: false
+  strip:
+    description: 'Strip debug symbols from build'
+    default: 'true'
     required: false
   verbose:
     description: 'Enables verbose mode'
