@@ -30,11 +30,8 @@ jobs:
         output: compressed
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build output exists
+    - name: Build outputs have different file size
       run: |
-        stat -c%s "uncompressed.pdx/main.pdz"
-        stat -c%s "compressed.pdx/main.pdz"
-
         if ((`stat -c%s "uncompressed.pdx/main.pdz"` == `stat -c%s "compressed.pdx/main.pdz"`)); then
           echo "Both output files have the same size"
           exit 1
