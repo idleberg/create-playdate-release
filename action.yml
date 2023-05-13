@@ -14,7 +14,7 @@ inputs:
   input:
     description: 'The source directory of the project'
     default: 'source'
-    required: true
+    required: false
   output:
     description: 'The name of the build target directory'
     default: 'build'
