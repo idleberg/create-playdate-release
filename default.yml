@@ -18,7 +18,7 @@ jobs:
     - uses: idleberg/create-playdate-release@main
       with:
         dry_run: true
-        source_folder: .github/source
+        input: .github/source
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build output exists

@@ -1,0 +1,38 @@
+
+name: test:output
+
+on:
+  push
+
+jobs:
+  test-run:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: idleberg/create-playdate-release@main
+      with:
+        dry_run: true
+        input: .github/source
+        output: uncompressed
+        compress: false
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - uses: idleberg/create-playdate-release@main
+      with:
+        dry_run: true
+        input: .github/source
+        output: compressed
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build output exists
+      run: |
+        if ((`stat -c%s "uncompressed.pdx"` == `stat -c%s "compressed.pdx"`)); then
+          echo "Both output files have the same size"
+          exit 1
+        fi

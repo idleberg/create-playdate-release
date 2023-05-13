@@ -1,5 +1,5 @@
 
-name: test:target_folder
+name: test:output
 
 on:
   push
@@ -18,8 +18,8 @@ jobs:
     - uses: idleberg/create-playdate-release@main
       with:
         dry_run: true
-        source_folder: .github/source
-        target_folder: yolo
+        input: .github/source
+        output: yolo
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build output exists

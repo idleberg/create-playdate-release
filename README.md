@@ -25,8 +25,8 @@ Bold arguments are required
 | Input              | Description                                       | Default  |
 | ------------------ | --------------------------------------------------| -------- |
 | **`github_token`** | Your GitHub token (`${{ secrets.GITHUB_TOKEN }}`) | –        |
-| `source_folder`    | The source directory of the project               | `source` |
-| `target_folder`    | The name of the build target directory            | `build`  |
+| `input`    | The source directory of the project               | `source` |
+| `output`    | The name of the build target directory            | `build`  |
 | `include_files`    | List of files to include in the release           | –        |
 | `is_draft`         | Mark release is a draft                           | `false`  |
 | `is_prerelease`    | Mark release is a pre-release                     | `false`  |

@@ -9,18 +9,40 @@ inputs:
   github_token:
     description: 'You need to pass your GITHUB_TOKEN to the action'
     required: true
-  source_folder:
+
+  # pdc options
+  input:
     description: 'The source directory of the project'
     default: 'source'
-    required: false
-  target_folder:
+    required: true
+  output:
     description: 'The name of the build target directory'
     default: 'build'
     required: false
+  compress:
+    description: 'Compress output files'
+    default: 'true'
+    required: false
+  strip:
+    description: 'Strip debug symbols from build'
+    default: 'true'
+    required: false
+  quiet:
+    description: 'Quiet mode, suppresses non-error output'
+    default: 'false'
+    required: false
+  verbose:
+    description: 'Enables verbose mode'
+    default: 'true'
+    required: false
+
+  # zip options
   include_files:
-    description: 'List of space-separated files to include in the release'
+    description: 'List space-separated of files to include in the release'
     default: ''
     required: false
+
+  # release options
   is_draft:
     description: 'Mark release is a draft'
     default: 'false'
@@ -43,8 +65,8 @@ runs:
     - name: Build Project
       shell: bash
       run: |
-        pdc ${{ inputs.source_folder }} ${{ inputs.target_folder }}.pdx --strip --verbose
-        zip -r -9 ${{ inputs.target_folder }}-${{ github.ref_name }}.zip ${{ inputs.target_folder }}.pdx ${{ inputs.include_files }}
+        pdc ${{ inputs.input }} ${{ inputs.output }}.pdx ${{ inputs.strip == 'true' && '--strip' }} ${{ inputs.verbose  == 'true'&& '--verbose' }} ${{ inputs.compress == 'false' && '--no-compress' }}
+        # zip -r -9 ${{ inputs.output }}-${{ github.ref_name }}.zip ${{ inputs.output }}.pdx ${{ inputs.include_files }}
 
     - name: Create Release
       uses: actions/create-release@v1
@@ -65,6 +87,6 @@ runs:
         GITHUB_TOKEN: ${{ inputs.github_token }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./${{ inputs.target_folder }}-${{ github.ref_name }}.zip
-        asset_name: ${{ inputs.target_folder }}-${{ github.ref_name }}.zip
+        asset_path: ./${{ inputs.output }}-${{ github.ref_name }}.zip
+        asset_name: ${{ inputs.output }}-${{ github.ref_name }}.zip
         asset_content_type: application/zip
