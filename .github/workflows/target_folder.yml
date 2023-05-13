@@ -1,5 +1,5 @@
 
-name: test:output
+name: test:target_folder
 
 on:
   push
