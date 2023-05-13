@@ -65,7 +65,7 @@ runs:
     - name: Build Project
       shell: bash
       run: |
-        pdc ${{ inputs.input }} ${{ inputs.output }}.pdx ${{ inputs.strip == 'true' && '--strip' }} ${{ inputs.verbose  == 'true'&& '--verbose' }} ${{ inputs.compress == 'false' && '--no-compress' }}
+        pdc ${{ inputs.input }} ${{ inputs.output }}.pdx ${{ inputs.strip == 'true' && '--strip' }} ${{ inputs.verbose  == 'true' && '--verbose' }} ${{ inputs.compress == 'false' && '--no-compress' }}
         zip -r -9 ${{ inputs.output }}-${{ github.ref_name }}.zip ${{ inputs.output }}.pdx ${{ inputs.include_files }}
 
     - name: Create Release
