@@ -1,0 +1,41 @@
+
+name: test:strip
+
+on:
+  push:
+    paths:
+    - 'action.yml'
+    - '.github/workflows/strip.yml'
+
+jobs:
+  test-run:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: idleberg/create-playdate-release@develop
+      with:
+        dry_run: true
+        input: .github/source
+        output: stripped
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - uses: idleberg/create-playdate-release@develop
+      with:
+        dry_run: true
+        input: .github/source
+        output: unstripped
+        strip: false
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build outputs have different file size
+      run: |
+        if ((`stat -c%s "stripped.pdx/main.pdz"` == `stat -c%s "unstripped.pdx/main.pdz"`)); then
+          echo "Both output files have the same size"
+          exit 1
+        fi
