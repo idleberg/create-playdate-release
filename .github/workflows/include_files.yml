@@ -1,7 +1,10 @@
 name: test:include_files
 
 on:
-  push
+  push:
+    paths:
+    - 'action.yml'
+    - '.github/workflows/include_files.yml'
 
 jobs:
   test-run:

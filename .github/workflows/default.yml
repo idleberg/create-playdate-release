@@ -1,7 +1,10 @@
 name: test:default
 
 on:
-  push
+  push:
+    paths:
+    - 'action.yml'
+    - '.github/workflows/default.yml'
 
 jobs:
   test-run:

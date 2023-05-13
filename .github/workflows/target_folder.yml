@@ -1,7 +1,10 @@
 name: test:target_folder
 
 on:
-  push
+  push:
+    paths:
+    - 'action.yml'
+    - '.github/workflows/target_folder.yml'
 
 jobs:
   test-run:

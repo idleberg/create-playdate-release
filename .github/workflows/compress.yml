@@ -2,7 +2,10 @@
 name: test:compress
 
 on:
-  push
+  push:
+    paths:
+    - 'action.yml'
+    - '.github/workflows/compress.yml'
 
 jobs:
   test-run:
