@@ -35,7 +35,7 @@ jobs:
         stat -c%s "uncompressed.pdx/main.pdz"
         stat -c%s "compressed.pdx/main.pdz"
 
-        # if ((`stat -c%s "uncompressed.pdx/main.pdz"` == `stat -c%s "compressed.pdx/main.pdz"`)); then
-        #   echo "Both output files have the same size"
-        #   exit 1
-        # fi
+        if ((`stat -c%s "uncompressed.pdx/main.pdz"` == `stat -c%s "compressed.pdx/main.pdz"`)); then
+          echo "Both output files have the same size"
+          exit 1
+        fi
