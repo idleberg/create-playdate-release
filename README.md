@@ -2,9 +2,10 @@
 
 > A GitHub action that compiles and attaches a Playdate game to a release.
 
-[![License](https://flat.badgen.net/github/license/idleberg/create-playdate-release)](LICENSE)
-[![Version](https://flat.badgen.net/github/release/idleberg/create-playdate-release)](https://github.com/idleberg/create-playdate-release/releases)
-[![Status](https://flat.badgen.net/github/checks/idleberg/create-playdate-release/?label=build)](https://github.com/idleberg/create-playdate-release/actions)
+[![License](https://img.shields.io/github/license/idleberg/create-playdate-release?style=for-the-badge)](LICENSE)
+[![Version](https://img.shields.io/github/v/release/idleberg/create-playdate-release?style=for-the-badge)]([https://github.com/idleberg/scoop-playdate-sdk/releases](https://github.com/idleberg/create-playdate-release/releases))
+[![Build](https://img.shields.io/github/actions/workflow/status/idleberg/create-playdate-release/default.yml?style=for-the-badge)]([https://github.com/idleberg/create-playdate-release/releases](https://github.com/idleberg/create-playdate-release/actions))
+
 
 ## Usage
 
