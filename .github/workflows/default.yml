@@ -5,6 +5,7 @@ on:
     paths:
     - 'action.yml'
     - '.github/workflows/default.yml'
+  workflow_dispatch:
 
 jobs:
   test-run:

@@ -5,6 +5,7 @@ on:
     paths:
     - 'action.yml'
     - '.github/workflows/target_folder.yml'
+  workflow_dispatch:
 
 jobs:
   test-run:

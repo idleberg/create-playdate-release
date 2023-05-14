@@ -5,6 +5,7 @@ on:
     paths:
     - 'action.yml'
     - '.github/workflows/include_files.yml'
+  workflow_dispatch:
 
 jobs:
   test-run:
