@@ -73,6 +73,7 @@ runs:
         pdc_args+=" ${{ inputs.input }}"
         pdc_args+=" ${{ inputs.output }}.pdx"
         pdc $pdc_args;
+
         zip_args="-r -9"
         zip_args+=" ${{ inputs.output }}-${{ github.ref_name }}.zip"
         zip_args+=" ${{ inputs.output }}.pdx"
