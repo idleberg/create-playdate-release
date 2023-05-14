@@ -60,7 +60,7 @@ runs:
   using: "composite"
   steps:
     - name: Install SDK
-      uses: idleberg/setup-playdate-sdk@v2.0.0
+      uses: idleberg/setup-playdate-sdk@v2.0.1
 
     - name: Build Project
       shell: bash
