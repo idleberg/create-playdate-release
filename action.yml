@@ -66,17 +66,17 @@ runs:
       shell: bash
       run: |
         pdc_args=""
-        pdc_args+= ${{ inputs.compress == 'false' && '--no-compress' || '' }}
-        pdc_args+= ${{ inputs.quiet == 'true' && '--quiet' || '' }}
-        pdc_args+= ${{ inputs.strip == 'true' && '--strip' || '' }}
-        pdc_args+= ${{ inputs.verbose == 'true' && '--verbose' || '' }}
-        pdc_args+= ${{ inputs.input }}
-        pdc_args+= ${{ inputs.output }}.pdx
+        pdc_args+=" ${{ inputs.compress == 'false' && '--no-compress' || '' }}"
+        pdc_args+=" ${{ inputs.quiet == 'true' && '--quiet' || '' }}"
+        pdc_args+=" ${{ inputs.strip == 'true' && '--strip' || '' }}"
+        pdc_args+=" ${{ inputs.verbose == 'true' && '--verbose' || '' }}"
+        pdc_args+=" ${{ inputs.input }}"
+        pdc_args+=" ${{ inputs.output }}.pdx"
         pdc $pdc_args;
         zip_args="-r -9"
-        zip_args+= ${{ inputs.output }}-${{ github.ref_name }}.zip
-        zip_args+= ${{ inputs.output }}.pdx
-        zip_args+= ${{ inputs.include_files }}
+        zip_args+=" ${{ inputs.output }}-${{ github.ref_name }}.zip"
+        zip_args+=" ${{ inputs.output }}.pdx"
+        zip_args+=" ${{ inputs.include_files }}"
         zip $zip_args;
 
     - name: Create Release
