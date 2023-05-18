@@ -1,0 +1,34 @@
+name: test:quiet
+
+on:
+  push:
+    paths:
+    - 'action.yml'
+    - '.github/workflows/quiet.yml'
+  workflow_dispatch:
+
+jobs:
+  test-run:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: idleberg/create-playdate-release@develop
+      with:
+        dry_run: true
+        input: .github/source
+        quiet: true
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    # TODO check output length
+    - name: Build output exists
+      run: |
+        if ! ls build.pdx/main.pdz 1> /dev/null 2>&1; then
+            echo "Build output doesn't exist"
+            exit 1
+        fi
