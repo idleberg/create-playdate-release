@@ -75,6 +75,8 @@ runs:
         pdc $pdc_args;
 
         zip_args="-r -9"
+        zip_args+=" ${{ inputs.quiet == 'true' && '-q' || '' }}"
+        zip_args+=" ${{ inputs.verbose == 'true' && inputs.quiet != 'true' && '-v' || '' }}"
         zip_args+=" ${{ inputs.output }}-${{ github.ref_name }}.zip"
         zip_args+=" ${{ inputs.output }}.pdx"
         zip_args+=" ${{ inputs.include_files }}"
