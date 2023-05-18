@@ -67,7 +67,7 @@ runs:
       run: |
         pdc_args=""
         pdc_args+=" ${{ inputs.compress == 'false' && '--no-compress' || '' }}"
-        pdc_args+=" ${{ inputs.quiet == 'true' && inputs.verbose != 'true' && '--quiet' || '' }}"
+        pdc_args+=" ${{ inputs.quiet == 'true' && '--quiet' || '' }}"
         pdc_args+=" ${{ inputs.strip == 'true' && '--strip' || '' }}"
         pdc_args+=" ${{ inputs.verbose == 'true' && inputs.quiet != 'true' && '--verbose' || '' }}"
         pdc_args+=" ${{ inputs.input }}"
