@@ -60,7 +60,9 @@ runs:
   using: "composite"
   steps:
     - name: Install SDK
-      uses: idleberg/setup-playdate-sdk@v2.0.1
+      uses: idleberg/setup-playdate-sdk@v2.1.0
+      with:
+        quiet: ${{ inputs.quiet }}
 
     - name: Build Project
       shell: bash
