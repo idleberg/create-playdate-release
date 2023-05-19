@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: idleberg/create-playdate-release@develop
+    - uses: idleberg/create-playdate-release@main
       with:
         dry_run: true
         input: .github/source
@@ -27,7 +27,7 @@ jobs:
         compress: false
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
-    - uses: idleberg/create-playdate-release@develop
+    - uses: idleberg/create-playdate-release@main
       with:
         dry_run: true
         input: .github/source
