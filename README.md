@@ -12,7 +12,7 @@
 Configure a step that adds the `idleberg/create-playdate-release` action to your workflow. Optionally, you can pass arguments to the action.
 
 ```yaml
-- uses: idleberg/create-playdate-release@v0.1.2
+- uses: idleberg/create-playdate-release@v0.2.0
   with: 
     github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
