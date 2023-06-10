@@ -17,7 +17,7 @@ Configure a step that adds the `idleberg/create-playdate-release` action to your
     github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-:bulb: **Note:** For security reasons it's recommended to use the commit hash of the [release](https://github.com/idleberg/setup-playdate-sdk/releases) as version identifier
+:bulb: **Note:** For security reasons it's recommended to use the commit hash of the [release](https://github.com/idleberg/create-playdate-release/releases) as version identifier
 
 ## All options
 
