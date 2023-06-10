@@ -12,10 +12,12 @@
 Configure a step that adds the `idleberg/create-playdate-release` action to your workflow. Optionally, you can pass arguments to the action.
 
 ```yaml
-- uses: idleberg/create-playdate-release@v0.2.0
+- uses: idleberg/create-playdate-release@v0.3.0
   with: 
     github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+:bulb: **Note:** For security reasons it's recommended to use the commit hash of the [release](https://github.com/idleberg/setup-playdate-sdk/releases) as version identifier
 
 ## All options
 
