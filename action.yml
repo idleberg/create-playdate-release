@@ -60,7 +60,7 @@ runs:
   using: "composite"
   steps:
     - name: Install SDK
-      uses: idleberg/setup-playdate-sdk@v3.0.0
+      uses: idleberg/setup-playdate-sdk@28a7b2f8e639099956a8af88b196464ed7ca333a # v4.0.0
       with:
         quiet: ${{ inputs.quiet }}
 
@@ -85,7 +85,7 @@ runs:
         zip $zip_args;
 
     - name: Create Release
-      uses: actions/create-release@v1
+      uses: actions/create-release@0cb9c9b65d5d1901c1f53e5e66eaf4afd303e70e # v1.1.4
       id: create_release
       if: ${{ inputs.dry_run == 'false' }}
       env:
@@ -97,7 +97,7 @@ runs:
         prerelease: ${{ inputs.is_prerelease }}
 
     - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
+      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 # v1.0.2
       if: ${{ inputs.dry_run == 'false' }}
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
